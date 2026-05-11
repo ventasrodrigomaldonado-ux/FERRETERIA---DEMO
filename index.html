@@ -39,41 +39,75 @@ footer{background:#000;text-align:center;padding:30px 20px;border-top:4px solid 
 <a href="https://wa.me/5213113392436" class="btn">📲 Pedir por WhatsApp</a>
 </header>
 
-<section>
-<h2>Productos Destacados</h2>
-<div class="grid">
-<div class="card">
-<img src="images/taladro1.jpg" alt="Taladros" style="width:100%; height:180px; object-fit:cover; border-radius:6px; margin-bottom:15px;">
-<h3>Taladros</h3>
-<p>Eléctricos e inalámbricos para uso profesional y doméstico.</p>
+<section style="padding:60px 20px; background:#111; color:white;">
+<h2 style="text-align:center; margin-bottom:40px;">Catálogo de Productos</h2>
+
+<div class="productos-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px;">
+
+<!-- TALADRO -->
+<div class="producto">
+<img src="images/taladro1.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:8px;">
+<h3>Taladro</h3>
+<p>$1,200 MXN</p>
+<input type="number" min="1" value="1" id="taladro">
+<button onclick="agregarAlCarrito('Taladro',1200,'taladro')">Agregar</button>
 </div>
-<div class="card">
-<img src="images/martillo1.jpg" alt="Martillos" style="width:100%; height:180px; object-fit:cover; border-radius:6px; margin-bottom:15px;">
-<h3>Martillos</h3>
-<p>Gran variedad para carpintería y construcción.</p>
+
+<!-- MARTILLO -->
+<div class="producto">
+<img src="images/martillo1.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:8px;">
+<h3>Martillo</h3>
+<p>$250 MXN</p>
+<input type="number" min="1" value="1" id="martillo">
+<button onclick="agregarAlCarrito('Martillo',250,'martillo')">Agregar</button>
 </div>
-<div class="card">
-<img src="images/pintura1.jpg" alt="Pinturas" style="width:100%; height:180px; object-fit:cover; border-radius:6px; margin-bottom:15px;">
-<h3>Pinturas</h3>
-<p>Colores y accesorios para renovar tus espacios.</p>
-</div>
-<div class="card">
-<img src="images/tornillo1.jpg" alt="tornilleria" style="width:100%; height:180px; object-fit:cover; border-radius:6px; margin-bottom:15px;">
-<h3>Tornillería</h3>
-<p>Tornillos, tuercas y fijaciones de todas las medidas.</p>
-</div>
-<div class="card">
-<img src="images/plomeria1.jpg" alt="plomeria" style="width:100%; height:180px; object-fit:cover; border-radius:6px; margin-bottom:15px;">
-<h3>Plomería</h3>
-<p>Tubería, conexiones y accesorios hidráulicos.</p>
-</div>
-<div class="card">
-<img src="images/electrico1.jpg" alt="Marterial Electrico" style="width:100%; height:180px; object-fit:cover; border-radius:6px; margin-bottom:15px;">
+
+<!-- MATERIAL ELECTRICO -->
+<div class="producto">
+<img src="images/electrico1.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:8px;">
 <h3>Material Eléctrico</h3>
-<p>Cables, apagadores, focos y más.</p>
+<p>$150 MXN</p>
+<input type="number" min="1" value="1" id="electrico">
+<button onclick="agregarAlCarrito('Material Eléctrico',150,'electrico')">Agregar</button>
 </div>
+
+<!-- PLOMERIA -->
+<div class="producto">
+<img src="images/plomeria1.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:8px;">
+<h3>Plomería</h3>
+<p>$180 MXN</p>
+<input type="number" min="1" value="1" id="plomeria">
+<button onclick="agregarAlCarrito('Plomería',180,'plomeria')">Agregar</button>
+</div>
+
+<!-- TORNILLERIA -->
+<div class="producto">
+<img src="images/tornilleria1.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:8px;">
+<h3>Tornillería</h3>
+<p>$80 MXN</p>
+<input type="number" min="1" value="1" id="tornilleria">
+<button onclick="agregarAlCarrito('Tornillería',80,'tornilleria')">Agregar</button>
+</div>
+
+<!-- PINTURAS -->
+<div class="producto">
+<img src="images/pintura1.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:8px;">
+<h3>Pinturas</h3>
+<p>$950 MXN</p>
+<input type="number" min="1" value="1" id="pintura">
+<button onclick="agregarAlCarrito('Pinturas',950,'pintura')">Agregar</button>
+</div>
+
 </div>
 </section>
+
+<section style="background:#000; color:white; padding:40px 20px;">
+<h2>🛒 Tu Pedido</h2>
+
+<div id="carrito"></div>
+
+<h3>Total: $<span id="total">0</span> MXN</h3>
+</section>  
 
 <section>
 <h2>¿Por qué elegirnos?</h2>
@@ -102,19 +136,27 @@ footer{background:#000;text-align:center;padding:30px 20px;border-top:4px solid 
 
 <section id="pedido">
 <h2>Hacer Pedido</h2>
+
 <form action="https://formsubmit.co/barriodigitaltepic@gmail.com" method="POST">
+
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_next" value="https://ventasrodrigomaldonado-ux.github.io/BARRIO---DIGITAL/gracias.html">
 
 <input type="text" name="nombre" placeholder="Nombre completo" required>
+
 <input type="tel" name="telefono" placeholder="Teléfono" required>
-<textarea name="productos" placeholder="¿Qué productos necesitas?" required></textarea>
+
+<textarea name="productos" placeholder="Productos seleccionados" required></textarea>
+
 <input type="text" name="direccion" placeholder="Dirección (si requiere entrega)">
+
 <select name="entrega">
 <option value="Retiro en tienda">Retiro en tienda</option>
 <option value="Entrega a domicilio">Entrega a domicilio</option>
 </select>
+
 <button type="submit">Enviar Pedido</button>
+
 </form>
 </section>
 
@@ -123,6 +165,54 @@ footer{background:#000;text-align:center;padding:30px 20px;border-top:4px solid 
 <p>📞 311 339 2436</p>
 <p>🕒 Abierto todos los días hasta las 9:30 pm</p>
 </footer>
+
+<script>
+let carrito = [];
+let total = 0;
+
+function agregarAlCarrito(nombre, precio, idCantidad){
+    let cantidad = parseInt(document.getElementById(idCantidad).value);
+    let existente = carrito.find(item => item.nombre === nombre);
+
+    if(existente){
+        existente.cantidad += cantidad;
+    } else {
+        carrito.push({nombre, precio, cantidad});
+    }
+
+    actualizarCarrito();
+}
+
+function actualizarCarrito(){
+    let contenedor = document.getElementById("carrito");
+    let totalElemento = document.getElementById("total");
+    let textarea = document.querySelector("textarea[name='productos']");
+    
+    contenedor.innerHTML = "";
+    total = 0;
+    textarea.value = "";
+
+    carrito.forEach((item, index) => {
+        total += item.precio * item.cantidad;
+
+        contenedor.innerHTML += `
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                <span>${item.nombre} x${item.cantidad}</span>
+                <button onclick="eliminarProducto(${index})">❌</button>
+            </div>
+        `;
+
+        textarea.value += item.nombre + " x" + item.cantidad + "\n";
+    });
+
+    totalElemento.innerText = total;
+}
+
+function eliminarProducto(index){
+    carrito.splice(index,1);
+    actualizarCarrito();
+}
+</script>  
 
 </body>
 </html>
