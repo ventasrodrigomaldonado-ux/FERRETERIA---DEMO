@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ferretería Express | Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{background:#111;color:white;}
+header{background:#000;padding:40px 20px;text-align:center;border-bottom:4px solid #facc15;}
+header h1{font-size:40px;font-weight:800;color:#facc15;}
+header p{margin-top:10px;color:#ddd;}
+.btn{display:inline-block;margin:15px 10px;padding:12px 25px;background:#facc15;color:#000;font-weight:600;text-decoration:none;border-radius:5px;transition:0.3s;}
+.btn:hover{background:#eab308;}
+section{padding:60px 20px;max-width:1200px;margin:auto;}
+section h2{text-align:center;margin-bottom:40px;color:#facc15;font-size:28px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+.card{background:#1a1a1a;padding:20px;border:1px solid #333;border-radius:8px;text-align:center;}
+.placeholder{height:180px;background:#333;border-radius:6px;margin-bottom:15px;display:flex;align-items:center;justify-content:center;color:#888;font-size:14px;}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;text-align:center;}
+.feature{background:#1a1a1a;padding:20px;border-radius:8px;border:1px solid #333;}
+.reviews{max-width:800px;margin:auto;text-align:center;}
+.review{background:#1a1a1a;padding:20px;margin-bottom:20px;border-radius:8px;border:1px solid #333;}
+form{background:#1a1a1a;padding:30px;border-radius:8px;border:1px solid #333;max-width:600px;margin:40px auto;}
+form input, form textarea, form select{width:100%;padding:12px;margin-bottom:15px;border:none;border-radius:5px;}
+form button{width:100%;padding:15px;background:#facc15;color:#000;font-weight:700;border:none;border-radius:5px;cursor:pointer;}
+form button:hover{background:#eab308;}
+footer{background:#000;text-align:center;padding:30px 20px;border-top:4px solid #facc15;color:#bbb;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Ferretería Express</h1>
+<p>Todo para tu construcción, rápido y cerca de ti en Tepic</p>
+<a href="#pedido" class="btn">📦 Hacer Pedido</a>
+<a href="https://wa.me/5213113392436" class="btn">📲 Pedir por WhatsApp</a>
+</header>
+
+<section>
+<h2>Productos Destacados</h2>
+<div class="grid">
+<div class="card">
+<div class="placeholder">Espacio para foto - Taladros</div>
+<h3>Taladros</h3>
+<p>Eléctricos e inalámbricos para uso profesional y doméstico.</p>
+</div>
+<div class="card">
+<div class="placeholder">Espacio para foto - Martillos</div>
+<h3>Martillos</h3>
+<p>Gran variedad para carpintería y construcción.</p>
+</div>
+<div class="card">
+<div class="placeholder">Espacio para foto - Pinturas</div>
+<h3>Pinturas</h3>
+<p>Colores y accesorios para renovar tus espacios.</p>
+</div>
+<div class="card">
+<div class="placeholder">Espacio para foto - Tornillería</div>
+<h3>Tornillería</h3>
+<p>Tornillos, tuercas y fijaciones de todas las medidas.</p>
+</div>
+<div class="card">
+<div class="placeholder">Espacio para foto - Plomería</div>
+<h3>Plomería</h3>
+<p>Tubería, conexiones y accesorios hidráulicos.</p>
+</div>
+<div class="card">
+<div class="placeholder">Espacio para foto - Material eléctrico</div>
+<h3>Material Eléctrico</h3>
+<p>Cables, apagadores, focos y más.</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>¿Por qué elegirnos?</h2>
+<div class="features">
+<div class="feature">✔ Abierto hasta las 9:30 pm</div>
+<div class="feature">✔ Entrega a domicilio</div>
+<div class="feature">✔ Retiro en tienda</div>
+<div class="feature">✔ Atención personalizada</div>
+<div class="feature">✔ 4.8 ⭐ en reseñas</div>
+</div>
+</section>
+
+<section class="reviews">
+<h2>Lo que dicen nuestros clientes</h2>
+<div class="review">
+<p>⭐⭐⭐⭐⭐</p>
+<p>"Excelente atención. Buena variedad de productos además de accesibles."</p>
+<p><strong>- María Magnolia</strong></p>
+</div>
+<div class="review">
+<p>⭐⭐⭐⭐⭐</p>
+<p>"Lo mejor permanece abierto de 9:00 am a 9:00 pm, buena atención."</p>
+<p><strong>- Oscar Carrillo</strong></p>
+</div>
+</section>
+
+<section id="pedido">
+<h2>Hacer Pedido</h2>
+<form action="https://formsubmit.co/barriodigitaltepic@gmail.com" method="POST">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://ventasrodrigomaldonado-ux.github.io/BARRIO---DIGITAL/gracias.html">
+
+<input type="text" name="nombre" placeholder="Nombre completo" required>
+<input type="tel" name="telefono" placeholder="Teléfono" required>
+<textarea name="productos" placeholder="¿Qué productos necesitas?" required></textarea>
+<input type="text" name="direccion" placeholder="Dirección (si requiere entrega)">
+<select name="entrega">
+<option value="Retiro en tienda">Retiro en tienda</option>
+<option value="Entrega a domicilio">Entrega a domicilio</option>
+</select>
+<button type="submit">Enviar Pedido</button>
+</form>
+</section>
+
+<footer>
+<p>📍 C. Villa de la Torre 210, Tepic, Nayarit</p>
+<p>📞 311 339 2436</p>
+<p>🕒 Abierto todos los días hasta las 9:30 pm</p>
+</footer>
+
+</body>
+</html>
