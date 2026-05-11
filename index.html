@@ -155,7 +155,7 @@ footer{background:#000;text-align:center;padding:30px 20px;border-top:4px solid 
 <option value="Entrega a domicilio">Entrega a domicilio</option>
 </select>
 
-<button type="submit">Enviar Pedido</button>
+<button type="button" onclick="enviarPedido()">Enviar Pedido</button>
 
 </form>
 </section>
@@ -212,7 +212,38 @@ function eliminarProducto(index){
     carrito.splice(index,1);
     actualizarCarrito();
 }
-</script>  
+</script> 
+
+<script>
+function enviarPedido() {
+
+    let nombre = document.querySelector("input[name='nombre']").value;
+    let telefono = document.querySelector("input[name='telefono']").value;
+    let direccion = document.querySelector("input[name='direccion']").value;
+    let entrega = document.querySelector("select[name='entrega']").value;
+    let productos = document.querySelector("textarea[name='productos']").value;
+
+    if(nombre === "" || telefono === "" || productos === ""){
+        alert("Por favor completa los campos obligatorios");
+        return;
+    }
+
+    let mensaje = "🛒 *Nuevo Pedido Ferretería Express* %0A%0A";
+    mensaje += "👤 Nombre: " + nombre + "%0A";
+    mensaje += "📞 Teléfono: " + telefono + "%0A";
+    mensaje += "🚚 Tipo: " + entrega + "%0A";
+    mensaje += "📍 Dirección: " + direccion + "%0A%0A";
+    mensaje += "📦 Productos:%0A" + productos;
+
+    let numero = "5213113392436"; // ← CAMBIA POR EL WHATSAPP REAL
+
+    let url = "https://wa.me/" + numero + "?text=" + mensaje;
+
+    window.open(url, "_blank");
+
+    document.querySelector("form").submit();
+}
+</script>    
 
 </body>
 </html>
